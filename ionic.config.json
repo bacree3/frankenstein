@@ -1,0 +1,7 @@
+{
+  "name": "frankenstein",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
