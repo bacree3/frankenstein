@@ -1,0 +1,6 @@
+{
+	"appId": "io.ionic.starter",
+	"appName": "frankenstein",
+	"webDir": "www",
+	"bundledWebRuntime": false
+}
