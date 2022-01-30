@@ -1,7 +1,7 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Log Book - View other users who have visited this app!
+      Log Book
     </ion-title>
   </ion-toolbar>
 </ion-header>
@@ -12,8 +12,14 @@
       <ion-title size="large">Visitor Log Book</ion-title>
     </ion-toolbar>
   </ion-header>
+  <h3 style = "text-align: center;">View other users who have visited this app!</h3>
   <ion-item>
-    <ion-label position="floating">Add Name</ion-label>
-    <ion-input></ion-input>
+    <ion-input clearInput required [(ngModel)]="inputValue" id = "name" name = "name" placeholder ="Dr. Frankenstein"></ion-input>
+    <ion-button item-right (click)="submitName()">Submit Name</ion-button>
   </ion-item>
+  <ion-list *ngFor = "let user of logbookResults; index as position;">
+    <ion-item>
+      <ion-label>{{user.name.S}}</ion-label>
+    </ion-item>
+  </ion-list>
 </ion-content>

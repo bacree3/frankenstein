@@ -16,14 +16,17 @@ export class LogbookService {
     return this.http.get(finalUrl);
   }
 
-  public addVisitors(name) {
+  public async addVisitors(name) {
+    console.log("Add visitors called for " + name + ".");
     const finalUrl = this.url + 'addVisitorsToLog';
 
     let postData = {
       "name": name
     }
 
-    return this.http.post(finalUrl, postData)
+    return this.http.post(finalUrl, postData).subscribe((response) => {
+      console.log(response);
+    });
   }
 
 }
