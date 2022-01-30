@@ -9,7 +9,7 @@ import { Observable } from 'rxjs';
 })
 export class Tab4Page implements OnInit {
 
-  logbookResults: Observable<any>;
+  logbookResults = null;
   inputValue: string = "";
 
   constructor(public logbookservice: LogbookService) { }

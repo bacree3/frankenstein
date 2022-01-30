@@ -12,7 +12,7 @@
       <ion-title size="large">Weather</ion-title>
     </ion-toolbar>
   </ion-header>
-  <ion-searchbar [(ngModel)]="searchTerm" (ionChange)="searchChanged($event)"></ion-searchbar>
+  <ion-searchbar [(ngModel)]="searchTerm" (ionChange)="searchChanged()"></ion-searchbar>
   <ion-card-header *ngIf = "information">
     <ion-card-title>
       {{ information.location.name }}
