@@ -5,7 +5,7 @@ import time
 def lambda_handler(event, context):
     client = boto3.client('dynamodb')
 
-    name = event['headers']['name']
+    name = event['body']['name']
 
     return client.put_item(
         TableName = 'visitorLog',
