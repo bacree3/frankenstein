@@ -12,6 +12,24 @@
       <ion-title size="large">Weather</ion-title>
     </ion-toolbar>
   </ion-header>
+  <ion-searchbar [(ngModel)]="searchTerm" (ionChange)="searchChanged($event)"></ion-searchbar>
+  <ion-card-header *ngIf = "information">
+    <ion-card-title>
+      {{ information.location.name }}
+    </ion-card-title>
+    <ion-card-subtitle>
+      {{ information.location.region }}
+    </ion-card-subtitle>
+  </ion-card-header>
+  <ion-card *ngIf="information">
+    <ion-card-content text-center>
+      <img [src]="information.current.condition.icon" class="info-img">
 
-  <app-explore-container name="Weather"></app-explore-container>
+      <ion-item lines="none">
+        <ion-icon name="thermometer" slot="start"></ion-icon>
+        <ion-label>{{ information.current.temp_f }} degrees Fehrenheit</ion-label>
+      </ion-item>
+
+    </ion-card-content>
+  </ion-card>
 </ion-content>

@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { WeatherService } from "../services/weather.service";
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-tab1',
@@ -7,6 +9,25 @@ import { Component } from '@angular/core';
 })
 export class Tab1Page {
 
-  constructor() {}
+  results: Observable<any>;
+  searchTerm: string = '';
+  information = null;
 
+  constructor(public weatherservice: WeatherService) {}
+
+  async addDataToPage() {
+    console.log("triggered")
+    this.results = this.weatherservice.getWeatherData("Atlanta");
+    console.log(this.results)
+  }
+
+  ngOnInit() { }
+
+  searchChanged() {
+    // Call our service function which returns an Observable
+    this.weatherservice.getWeatherData(this.searchTerm).subscribe(result => {
+      this.information = result;
+    });
+    console.log(this.information);
+  }
 }
